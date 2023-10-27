@@ -1,7 +1,7 @@
 $(document).ready(() => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@northeastern\.edu$/;
 
-    // 创建一个对象来保存每个输入框的验证状态
+    // Create an object to store the validation status of each input field
     const validationStatus = {
         email: false,
         username: false,
@@ -9,26 +9,26 @@ $(document).ready(() => {
         confirmPassword: false,
     };
 
-    function showError(inputId, message) {
+    const showError = (inputId, message) => {
         $(`#${inputId}-error`).text(message);
         $(`#${inputId}`).css('border-color', 'red');
         validationStatus[inputId] = false;
-    }
+    };
 
-    function clearError(inputId) {
+    const clearError = (inputId) => {
         $(`#${inputId}-error`).text('');
         $(`#${inputId}`).css('border-color', '');
-    }
+    };
 
-    function validateEmail(email) {
+    const validateEmail = (email) => {
         if (!emailRegex.test(email)) {
             showError('email', 'Invalid email format. Use a Northeastern email address.');
             return false;
         }
         return true;
-    }
+    };
 
-    function validateUserName(username) {
+    const validateUserName = (username) => {
         if (username.length < 3 || username.length > 20) {
             showError('username', 'User Name must be between 3 and 20 characters.');
             return false;
@@ -38,9 +38,9 @@ $(document).ready(() => {
             return false;
         }
         return true;
-    }
+    };
 
-    function validatePassword(password) {
+    const validatePassword = (password) => {
         if (password.length < 8 || password.length > 20) {
             showError('password', 'Password must be between 8 and 20 characters.');
             return false;
@@ -50,27 +50,27 @@ $(document).ready(() => {
             return false;
         }
         return true;
-    }
+    };
 
-    function validateConfirmPassword(password, confirmPassword) {
+    const validateConfirmPassword = (password, confirmPassword) => {
         if (password !== confirmPassword) {
             showError('confirmPassword', 'Passwords do not match.');
             return false;
         }
         return true;
-    }
+    };
 
-    function enableLoginButton() {
+    const enableLoginButton = () => {
         if (Object.values(validationStatus).every(status => status)) {
             $('#loginButton').prop('disabled', false);
         }
-    }
+    };
 
-    function disableLoginButton() {
+    const disableLoginButton = () => {
         $('#loginButton').prop('disabled', true);
-    }
+    };
 
-    function validateField(inputId) {
+    const validateField = (inputId) => {
         clearError(inputId);
 
         const inputValue = $(`#${inputId}`).val();
@@ -91,30 +91,29 @@ $(document).ready(() => {
                 validationStatus[inputId] = true;
             }
         }
-
         enableLoginButton();
-    }
+    };
 
     disableLoginButton();
 
-    // 绑定输入框的事件处理程序
+    // Bind event handlers for the input fields
     $('#email, #username, #password, #confirmPassword').on('input', function () {
         const inputId = $(this).attr('id');
         validateField(inputId);
     });
 
-    $('#loginButton').on('click', function (e) {
+    $('#loginButton').on('click', (e) => {
         e.preventDefault();
 
-        // 验证所有输入框
+        // Validate all input fields
         for (const inputId in validationStatus) {
             validateField(inputId);
         }
 
-        // 只有在所有输入框都验证成功且非空时才会进行重定向
+        // Redirect only if all input fields are successfully validated and non-empty
         if (Object.values(validationStatus).every(status => status)) {
             const username = $('#username').val();
-            window.location.href = `second.html?username=${username}`;
+            window.location.href = `calculator.html?username=${username}`;
         }
     });
 });

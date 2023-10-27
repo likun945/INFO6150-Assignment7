@@ -1,0 +1,45 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+}
+
+/* Styling for the Welcome Section */
+.container:nth-child(1) {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1 {
+    color: #0074d9;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, button {
+    padding: 5px;
+    margin: 5px;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #0074d9;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}

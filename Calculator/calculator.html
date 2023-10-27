@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calculator.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Second Page</h1>
+        <p id="usernameDisplay">Logged-in User: </p>
+    </div>
+    <div class="container">
+        <h1>Calculator</h1>
+        <div>
+            <label for="number1">Number 1:</label>
+            <input type="text" id="number1">
+            <div id="number1-error" class="error"></div>
+        </div>
+        <div>
+            <label for="number2">Number 2:</label>
+            <input type="text" id="number2">
+            <div id="number2-error" class="error"></div>
+        </div>
+        <div>
+            <button id="addButton">Add</button>
+            <button id="subtractButton">Subtract</button>
+            <button id="multiplyButton">Multiply</button>
+            <button id="divideButton">Divide</button>
+        </div>
+        <div>
+            <label for="result">Result:</label>
+            <input type="text" id="result" disabled>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="calculator.js"></script>
+</body>
+</html>
