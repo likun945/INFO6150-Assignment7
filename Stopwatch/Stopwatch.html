@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Stopwatch.css">
+    <title>Stopwatch</title>
+</head>
+<body>
+    <div class="stopwatch">
+        <label id="timeDisplay">00:00:00</label>
+        <input type="date" id="datePicker" value="YYYY-MM-DD" onchange="updateDateDisplay()">
+        <div class="controls">
+            <button id="startButton">Start</button>
+            <button id="stopButton">Stop</button>
+            <button id="resetButton">Reset</button>
+        </div>
+    </div>
+    <script src="Stopwatch.js"></script>
+</body>
+</html>
